@@ -5,15 +5,17 @@ public class DestoryFireworks : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    public float fireworkTimer;
-    public float timeonScreen = 5;
-    public GameObject self;
+    public float fireworkTimer; 
+    public float timeonScreen = 5; //determines how long the fireworks stays on screen
+    public GameObject self; //refering to the fireworks themselves hennce 'itself'
     public FireworkSpawner fireworkSpawner;
+   
     void Start()
     {
         fireworkTimer = 0; //just to make sure it resets 
 
     }
+
 
     // Update is called once per frame
     void Update()
@@ -23,11 +25,11 @@ public class DestoryFireworks : MonoBehaviour
         if (fireworkTimer >= timeonScreen)
 
         {
-            fireworkSpawner.fireworksetofCount--;
+         
+            fireworkSpawner.Countdown();
             Destroy(self);
             //after 5 seconds have passed, destroy myself (fireworks) and reduce the firework count by 1. 
-            //I can't reduce the timer because it doesn't see fireworksetofCount
-            //I need help finding get the component from the other script on each firework prefab 
+            
         }
     }
 }

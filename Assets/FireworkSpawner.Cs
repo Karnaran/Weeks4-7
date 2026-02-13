@@ -37,15 +37,15 @@ public class FireworkSpawner : MonoBehaviour
 
         FireworkCount.text = slider.value.ToString();
 
-        //instantiate a prefab: make a single firework appear for now
-        //Instantiate(FireworksPrefab);
-
+    
 
         fireworks.Add(spawnedFirework);
 
         Vector2 spawnPos = Random.insideUnitCircle * 5f;
         spawnedFirework = Instantiate(FireworksPrefab[(int)Random.Range(0,5)], spawnPos, transform.rotation); //randomly picks a firework to display between 0-4 range.
-        //Instantiate(FireworksPrefab, spawnPos, Quaternion.identity);
+        spawnedFirework.GetComponent<DestoryFireworks>().fireworkSpawner = GetComponent<FireworkSpawner>(); 
+        //fills in the empty vessel of FireworkSpawner using itself so it can be applied and used in DestoryFireworks
+      
 
     }
 
@@ -53,13 +53,13 @@ public class FireworkSpawner : MonoBehaviour
 
     {
         spawnedFirework.transform.localScale = Vector3.one * scale * scaleMultiply; //enlarges the images as per the slider
-        //slider increased by one as the image gets larger, once it reaches it's size, made it capable of retaining its orignal form if the user sizes it down
+        //slider increased by one as the image gets larger, once it reaches it's size it has been made capable of retaining its orignal form if the user sizes it down rather than vanishing entirely off the screen
     }
     public void SetRotation(float rotate)
 
     {
-        float y = 0;
-        RotationANngle = new Vector3(0,0 ,36)  * rotate;
+        //float y = 0;
+        RotationANngle = new Vector3(0,0 ,36)  * rotate; //using Z as rotation to give the illusion of the firework image moving sideways on the screen as the user plays around the rotate
         spawnedFirework.transform.localRotation = Quaternion.Euler(RotationANngle); //creates rotate in degrees. Euler angles in degrees to a Quaternion
     }
 
@@ -69,8 +69,17 @@ public class FireworkSpawner : MonoBehaviour
 
     {
         fireworksetofCount++;
-        FireworkCount.text = fireworksetofCount.ToString();
+        FireworkCount.text = fireworksetofCount.ToString(); //adds the times fireworks are dispalyed on screen 
 
-        
+    
     }
+
+
+    public void Countdown()
+
+    {
+        fireworksetofCount--;
+        FireworkCount.text = fireworksetofCount.ToString(); //subtracts the times firworks are displayed on screen after each firework destroys itself. 
+    }
+
 }
