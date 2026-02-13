@@ -1374,7 +1374,7 @@ GameObject:
   - component: {fileID: 1195440223}
   - component: {fileID: 1195440222}
   m_Layer: 5
-  m_Name: Firework Count (2)
+  m_Name: Firework Rotate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1616,6 +1616,7 @@ GameObject:
   - component: {fileID: 1355673272}
   - component: {fileID: 1355673271}
   - component: {fileID: 1355673270}
+  - component: {fileID: 1355673273}
   m_Layer: 5
   m_Name: Firework Count
   m_TagString: Untagged
@@ -1743,6 +1744,26 @@ RectTransform:
   m_AnchoredPosition: {x: 183, y: -61}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1355673273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355673269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2250b883d57a0c4459eef1ac36dabd91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FireworksPrefab:
+  - {fileID: 0}
+  spawnedFirework: {fileID: 0}
+  fireworks: []
+  slider: {fileID: 0}
+  fireworksetofCount: 0
+  scaleMultiply: 0.5
+  FireworkCount: {fileID: 1355673270}
 --- !u!1 &1595814181
 GameObject:
   m_ObjectHideFlags: 0
@@ -1830,7 +1851,7 @@ GameObject:
   - component: {fileID: 1796568871}
   - component: {fileID: 1796568870}
   m_Layer: 5
-  m_Name: Firework Count (1)
+  m_Name: Firework Scale
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
